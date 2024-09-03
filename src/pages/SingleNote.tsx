@@ -27,7 +27,7 @@ const SingleNote = () => {
   }
   return (
     <div>
-      <div className="flex gap-5 items-center mt-5 ">
+      <div className="flex gap-5 items-center mt-5 mb-10">
         <Link to="/">
           <button className="border border-black px-2 py-1 font-bold flex items-center gap-1 hover:bg-blue-500 hover:text-white hover:border-blue-400 duration-300 focus:scale-90">
             <span className="material-symbols-outlined font-semibold text-sm">

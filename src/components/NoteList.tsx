@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const NoteList = () => {
   const notes = useSelector((state: RootState) => state.notes.notes);
   return (
-    <ul className="grid mt-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+    <ul className="grid mt-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-5">
       {notes.map((n: Notes, index: number) => (
         <li
           key={index}
