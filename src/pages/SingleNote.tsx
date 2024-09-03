@@ -33,7 +33,7 @@ const SingleNote = () => {
             <span className="material-symbols-outlined font-semibold text-sm">
               arrow_back
             </span>
-            back to list
+            <p className="max-sm:hidden">back to list</p>
           </button>
         </Link>
         <select
@@ -58,7 +58,7 @@ const SingleNote = () => {
           bold
         </button>
         <div className="flex items-center gap-2">
-          <label className="font-bold" htmlFor="color">
+          <label className="font-bold max-sm:hidden" htmlFor="color">
             Text color :
           </label>
           <input
