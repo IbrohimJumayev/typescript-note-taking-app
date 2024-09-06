@@ -8,6 +8,7 @@ import {
 } from "../store/slices/notesSlice";
 import { RootState } from "../store/store";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const SingleNote = () => {
   const { id } = useParams();
@@ -17,6 +18,8 @@ const SingleNote = () => {
   const fontSize = useSelector((state: RootState) => state.notes.fontSize);
   const isBold = useSelector((state: RootState) => state.notes.isBold);
   const color = useSelector((state: RootState) => state.notes.color);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [edited, setIsEdited] = useState<string>('')
 
   const handleSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(changeSize(e.target.value));
@@ -68,14 +71,32 @@ const SingleNote = () => {
             name=""
             id="color"
           />
+          <button
+            onClick={() => setIsEditing(!isEditing)}
+            className="ml-4 mt-1"
+          >
+            <span className="material-symbols-outlined">edit</span>
+          </button>
         </div>
       </div>
-      <p
-        style={{ fontSize: `${fontSize}px`, color: `${color}` }}
-        className={`mt-10 ${isBold ? "font-bold" : ""}`}
-      >
-        {note.note}
-      </p>
+      {isEditing ? (
+        <textarea
+        onChange={(e) => setIsEdited(e.target.value)}
+        value={note.note}
+          className="border border-black"
+          name=""
+          id=""
+          cols={170}
+          rows={25}
+        ></textarea>
+      ) : (
+        <p
+          style={{ fontSize: `${fontSize}px`, color: `${color}` }}
+          className={`mt-10 ${isBold ? "font-bold" : ""}`}
+        >
+          {note.note}
+        </p>
+      )}
     </div>
   );
 };

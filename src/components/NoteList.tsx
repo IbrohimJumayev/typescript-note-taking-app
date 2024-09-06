@@ -15,7 +15,7 @@ const NoteList = () => {
           <strong>Note: {index + 1}</strong>
           <Link to={`/${n.id}`}>
             <p className="text-gray-800">
-              {n.note.length > 100 ? n.note.slice(0, 100) + "...." : n.note}{" "}
+              {n.note.length > 100 ? n.note.slice(0, 100) + "...." : n.note}
             </p>
           </Link>
         </li>
